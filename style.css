@@ -19,10 +19,13 @@
     gap: 10px;
     align-items: center;
 }
+.links  a:hover{
+   border-bottom: .2px solid;
+}
 
-#sec1{
+#home{
     display: flex;
-    height: 96vh; 
+    height: 95vh; 
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -32,7 +35,7 @@
     flex-direction: column;
     gap: 20px;
 }
-.content a{
+.content a , .featured a:first-child{
     background-color: black;
     color: white;
     width: fit-content;
@@ -61,6 +64,62 @@ i{
     text-align: center;
     margin-right: 40px;
 }
-#sec2{
+#feat{
+    transition: 15s;
     height: 100vh;
+}
+.featured{
+    width: 300px;
+    background-color: #ebf1f1 ;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 4px;
+}
+.featured img{
+    width:150px;
+    rotate: -30deg;
+    margin-bottom: 15px;
+}
+
+.featured a:first-child{
+    position: absolute;
+    rotate: -90deg;
+    left: 5px;
+    top: 10px;
+}
+#feat h1{
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid;
+    width: fit-content;
+    margin: 0 auto;
+}
+#featureds{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.featured:nth-child(4) , .featured:nth-child(5){
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+    align-items: flex-end;
+    margin: 50px 20px 0 0;
+    padding: 10px;
+}
+.featured:nth-child(4) img , .featured:nth-child(5)  img{
+    height: 90%;
+    rotate: 0deg;
+}
+.featured div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
