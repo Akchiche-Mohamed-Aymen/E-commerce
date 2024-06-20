@@ -5,6 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     color: black;
+    scroll-behavior:smooth
 }
 .header{
     position: fixed;
@@ -19,13 +20,12 @@
     gap: 10px;
     align-items: center;
 }
-.links  a:hover{
-   border-bottom: .2px solid;
+.links  a:focus{
+    border-bottom: .2px solid;
 }
-
 #home{
     display: flex;
-    height: 95vh; 
+    height: 90vh; 
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -35,7 +35,7 @@
     flex-direction: column;
     gap: 20px;
 }
-.content a , .featured a:first-child{
+.content a  , .last a, .featured a:first-child{
     background-color: black;
     color: white;
     width: fit-content;
@@ -61,14 +61,13 @@ i{
     width: 370px;
     height: 200px;
     rotate: -30deg;
-    text-align: center;
     margin-right: 40px;
 }
-#feat{
-    transition: 15s;
+#feat {
     height: 100vh;
+    margin-top: 30px;
 }
-.featured{
+.featured , .woman{
     width: 300px;
     background-color: #ebf1f1 ;
     display: flex;
@@ -80,22 +79,29 @@ i{
     position: relative;
     border-radius: 4px;
 }
-.featured img{
+.woman{width: 270px; position: static;}
+.featured img , .woman img{
     width:150px;
     rotate: -30deg;
     margin-bottom: 15px;
 }
-
+.woman img{width: 130px;}
 .featured a:first-child{
     position: absolute;
     rotate: -90deg;
     left: 5px;
     top: 10px;
 }
-#feat h1{
+.featured:hover ,.woman:hover{
+    transition: 2s;
+    background-color: black;
+    *{
+    color: white;}
+}
+#feat h1 , #women h1{
     text-align: center;
     padding: 10px;
-    border-top: 2px solid;
+    border-top: 1px solid;
     width: fit-content;
     margin: 0 auto;
 }
@@ -111,7 +117,7 @@ i{
     justify-content: space-around;
     gap: 0;
     align-items: flex-end;
-    margin: 50px 20px 0 0;
+    margin: 30px 20px 0 0;
     padding: 10px;
 }
 .featured:nth-child(4) img , .featured:nth-child(5)  img{
@@ -122,4 +128,55 @@ i{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+#women{
+    margin-top: 130px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.women{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.last{
+    height: 300px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#ebf1f1  ;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 120px auto 0;
+    img{
+        height: 200px;
+    }
+}
+#women .part2{
+    height: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media (max-width:750px){
+    #home{
+        flex-direction: column-reverse;
+        margin: 30px auto;
+        height: 100vh;
+    } 
+    .img{
+        width: 270px;
+        height: 270px;
+    }
+    .img img{
+        width: 300px;
+        height: 200px;}
+        .header , .links{
+            flex-direction: column;
+            align-items: first baseline;
+        }
 }
