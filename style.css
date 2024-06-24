@@ -5,8 +5,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     color: black;
-    scroll-behavior:smooth
+    scroll-behavior:smooth;
+    border: none;
+    outline: none;
 }
+
+.header .bars{display: none; cursor: pointer;}
 .header{
     position: fixed;
     width: 100vw;
@@ -14,24 +18,40 @@
     padding: 20px;
     background-color : #ebf1f1
 }
-.header ,.links{
+.header ,.links , #home , .content , .img , .featured ,.woman ,.footer , .product, #new,
+#featureds , .featured div ,.main2 , .main2 div:first-child , .main2 div:nth-child(2) , #pro, #women , .women , .last , #women .part2{
     display: flex;
+}
+
+.header ,.links{
     justify-content: space-between;
     gap: 10px;
     align-items: center;
 }
-.links  a:focus{
-    border-bottom: .2px solid;
+.links  a{
+    position: relative;
 }
-#home{
-    display: flex;
-    height: 90vh; 
+.links a:active::before{
+    content: "";
+    background-color: black;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -5px;
+    left: 18px;
+
+}
+#home ,.featured , .woman  , .img , #featureds ,.last , .main div , .main2 div:first-child ,
+#new ,.product{
     align-items: center;
-    justify-content: center;
+    justify-content: center;  
+}
+#home {
+    height: 90vh; 
     gap: 20px;
 }
 .content{
-    display: flex;
     flex-direction: column;
     gap: 20px;
 }
@@ -53,9 +73,6 @@ i{
     height: 350px;
     background-color: black;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .img img{
     width: 370px;
@@ -69,13 +86,10 @@ i{
 }
 .featured , .woman{
     width: 300px;
-    background-color: #ebf1f1 ;
-    display: flex;
+    background-color: #f2f2f2;
     flex-direction: column;
     gap: 15px;
     height: 300px;
-    align-items: center;
-    justify-content: center;
     position: relative;
     border-radius: 4px;
 }
@@ -93,64 +107,68 @@ i{
     top: 10px;
 }
 .featured:hover ,.woman:hover{
+margin-top: 10px;
     transition: 2s;
     background-color: black;
     *{
     color: white;}
+    position: relative;
+    bottom: 10px;
 }
-#feat h1 , #women h1{
-    text-align: center;
+#feat h1 , #women h1 , #new h1 , #allPro h1{
     padding: 10px;
-    border-top: 1px solid;
     width: fit-content;
+    position: relative;
     margin: 0 auto;
 }
+#feat h1::before , #women h1::before , #new > h1::before , #allPro h1::before{
+    content: "";
+    background-color: black;
+    width: 70%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 27px;
+}
 #featureds{
-    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
 }
+
 .featured:nth-child(4) , .featured:nth-child(5){
     flex-direction: row;
     justify-content: space-around;
     gap: 0;
     align-items: flex-end;
     margin: 30px 20px 0 0;
-    padding: 10px;
+    padding: 0 0 10px 10px;
 }
 .featured:nth-child(4) img , .featured:nth-child(5)  img{
     height: 90%;
     rotate: 0deg;
 }
 .featured div{
-    display: flex;
     flex-direction: column;
     gap: 10px;
+    
 }
 #women{
     margin-top: 130px;
     height: 100vh;
-    display: flex;
     flex-direction: column;
 }
 .women{
-    display: flex;
     justify-content: center;
     gap: 15px;
 }
 .last{
     height: 300px;
     padding-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#ebf1f1  ;
+    background-color: #f2f2f2;
     max-width: 800px;
     width: 100%;
     border-radius: 5px;
-    margin: 120px auto 0;
+    margin: 120px  auto 0 ;
     img{
         height: 200px;
     }
@@ -158,9 +176,140 @@ i{
 #women .part2{
     height: 100%;
     gap: 20px;
-    display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 60px;
+}
+#new{
+    margin-top: 170px;
+    height: 120vh;
+    flex-direction: column;
+    gap: 60px;
+}
+.item1 img{
+height: 200px;
+width: 80%;
+} 
+#new .main{
+    height: 800px;
+    max-width: 800px;
+    height: 700px;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: repeat(2 , 1fr);
+}
+.main div{
+    background-color: #f2f2f2;
+}
+.main .item1{
+    grid-row: 1/-1;
+    grid-column: 1/2;
+}
+.main div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    position: relative;
+    height: 100%;
+}
+.main div img{
+    width: 150px;
+    height: 100px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.main2{
+    background-color: black;
+    border-radius: 5px;
+    height: 500px;
+    max-width: 800px;
+    padding: 20px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    *{
+        color: white;
+    }
+}
+.main2 div:first-child{
+    flex-direction: column;
+}
+.main2 div:nth-child(2){
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    border-radius: 5px;
+    height: 100px;
+}
+.main2 button , .main div a{
+    width: fit-content;
+    background-color: black;
+    border-radius: 5px;
+    padding: 10px;
+}
+.main div a{
+    display: none;
+    text-decoration: none;  
+}
+.main2 input , ::placeholder{
+    color: black;
+    font-size: 17px;
+}
+#pro{
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product{
+    width: 250px;
+    height: 300px;
+    background-color: black;
+    gap: 10px;
+   flex-direction: column;
+    *{color: #f2f2f2;}
+    img{
+        width: 80%;
+    }
+}
+@keyframes example {
+ 0%{bottom: 0;}
+ 25%{bottom: 30px;}
+ 75%{bottom: 50px;}
+ 100%{bottom: 70px;}
+}
+  
+  /* The element to apply the animation to */
+#new .main div:hover:not(.item1){
+    background-color:rgba(0, 0, 0, 0.621);
+a {
+    display: block;
+    z-index: 100;
+    position: absolute;
+    color: white;
+    border-radius: 6px;
+    animation-name: example;
+    animation-duration: 10s;
+  }}
+
+.footer{
+    max-width: 900px;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.footer i{font-size: 19px; margin-right: 10px;}
+#allPro{
+    height: 120vh;
+    margin-top: 80px;
 }
 @media (max-width:750px){
     #home{
@@ -172,11 +321,39 @@ i{
         width: 270px;
         height: 270px;
     }
+    #new , #women ,#feat{height: initial;}
     .img img{
         width: 300px;
         height: 200px;}
-        .header , .links{
-            flex-direction: column;
-            align-items: first baseline;
+    .women , .active , .main2 ,.footer ,  #new .main{
+        flex-direction: column;
+    }
+    .women  ,.active{ 
+            align-items: center;
+            margin-bottom: 20px;
         }
+        .links{display: none;}
+    .main2 ,.footer{
+        align-items: flex-start;
+        width: 95%;
+        margin: 20px ;
+        gap: 15px;
+    }
+    #new .main{
+    display: flex;
+    margin-bottom: 150px;
+    }
+    [class ^="item"]{
+        width: 400px;
+        margin: 10px auto;
+        background-color: blue;
+    }
+    .header h2{order: 2;}
+    .header i{order: 3;}
+    .header .bars{display: initial; order: 1;}
+    .active{
+        margin-top: 20px;
+        display: flex;
+    }
+    .header{align-items: flex-start;}
 }

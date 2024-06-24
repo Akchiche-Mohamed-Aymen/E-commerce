@@ -38,20 +38,48 @@ let createDiv2 = (src , cl = '' ,  name = "NIKE JORDAN")=>{
     p.innerHTML = "New Collection in 2024"
     div2.appendChild(createH3(name));
     div2.appendChild(p);
-    div2.appendChild(createLink(`Add to card  <i class="fa-solid fa-arrow-right"></i>`));
+    div2.appendChild(createLink(`<h3>Buy now</h3>  <i class="fa-solid fa-arrow-right"></i>`));
     div.appendChild(div2);
     div.appendChild(createImage(src));
     return div;
 
 }
 for( i = 1 ; i < 4 ; i++)
-    featureds.appendChild(createDiv(`IMAGES/featured${i}.png` ,  "featured"));
-for( i = 1 ; i <3 ; i++)
-    featureds.appendChild(createDiv2(`IMAGES/collection${i}.png` , "featured"));
+    featureds.appendChild(createDiv(`IMAGES/featured${i}.png` ,  "featured" ));
+let model = "Nike";
+for( i = 1 ; i <3 ; i++){
+    if(i === 2) model = "Adidas"
+    featureds.appendChild(createDiv2(`IMAGES/collection${i}.png` , "featured", model));
+}
 let arr = ["Nike Free TR" , "Nike Free TR" , "Nike GS Pink" , "Nike GET 5" ]
 for( i = 1 ; i <= 4 ; i++){
     let el = createDiv(`IMAGES/women${i}.png` , "woman");
     el.querySelector("h3").innerHTML = arr[i-1];
     el.removeChild(el.querySelector("a"));
     women.appendChild(el)
+}
+let pro = document.getElementById("pro");
+    
+let createProduct= (image)=>{
+    let div = document.createElement("div");
+    div.className = "product" ;
+    div.appendChild(createImage(image));
+    div.appendChild(createH3("Nike free"))
+    let p = document.createElement("p");
+    p.innerHTML = "49.98$ ";
+    div.appendChild(p);
+    div.appendChild(createLink(`Add to card <i class="fa-solid fa-arrow-right"></i>`))
+    return div;
+}
+
+for(i = 1  ; i < 5 ; i++)
+    pro.appendChild(createProduct(`IMAGES/new${i}.png`))
+for(i = 1  ; i < 5 ; i++)
+    pro.appendChild(createProduct(`IMAGES/women${i}.png`))
+for(i = 1  ; i < 4 ; i++)
+    pro.appendChild(createProduct(`IMAGES/featured${i}.png`));
+let bars = document.querySelector(".bars");
+let links = document.querySelector(".links");
+bars.onclick = ()=>{
+    links.classList.toggle("active")
 }
