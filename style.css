@@ -9,10 +9,17 @@
     border: none;
     outline: none;
 }
-
+.colorize{
+    transition: 3s;
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: 9px;
+}
 .header .bars{display: none; cursor: pointer;}
 .header{
     position: fixed;
+    top: 0;
     width: 100vw;
     z-index: 1000;
     padding: 20px;
@@ -25,22 +32,11 @@
 
 .header ,.links{
     justify-content: space-between;
-    gap: 10px;
+    gap: 30px;
     align-items: center;
 }
 .links  a{
     position: relative;
-}
-.links a:active::before{
-    content: "";
-    background-color: black;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -5px;
-    left: 18px;
-
 }
 #home ,.featured , .woman  , .img , #featureds ,.last , .main div , .main2 div:first-child ,
 #new ,.product{
@@ -209,6 +205,8 @@ width: 80%;
 }
 .main div{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
     padding: 20px;
@@ -218,9 +216,6 @@ width: 80%;
 .main div img{
     width: 150px;
     height: 100px;
-    position: relative;
-    top: 20px;
-    left: 20px;
 }
 
 .main2{
@@ -257,7 +252,12 @@ width: 80%;
 }
 .main div a{
     display: none;
-    text-decoration: none;  
+    text-decoration: none; 
+}
+.main .item1 a{
+    display: initial;
+    h3{
+    color: wheat;}
 }
 .main2 input , ::placeholder{
     color: black;
@@ -298,6 +298,7 @@ a {
     border-radius: 6px;
     animation-name: example;
     animation-duration: 10s;
+    transition: 4s;
   }}
 
 .footer{
@@ -341,7 +342,7 @@ a {
     }
     #new .main{
     display: flex;
-    margin-bottom: 150px;
+    margin-bottom: 200px;
     }
     [class ^="item"]{
         width: 400px;

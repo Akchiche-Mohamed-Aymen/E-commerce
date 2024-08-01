@@ -83,3 +83,11 @@ let links = document.querySelector(".links");
 bars.onclick = ()=>{
     links.classList.toggle("active")
 }
+function select(k){
+let link = links.children;
+        for(let i = 0 ; i < link.length ; i++)
+            link[i].classList.remove('colorize')    
+        link[k].classList.add('colorize')
+
+}
+
